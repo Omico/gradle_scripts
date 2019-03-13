@@ -1,0 +1,33 @@
+static String readCommand(String cmd) {
+    return cmd.execute().text.trim()
+}
+
+static int getVersionCode() {
+    String versionCode = readCommand('git rev-list HEAD --count')
+    return versionCode == "" ? 1 : versionCode.toInteger()
+}
+
+static String getVersionName() {
+    String versionName = readCommand('git describe --tags --dirty')
+    return versionName == "" ? "1.0.0" : versionName
+}
+
+ext.projectConfig = [
+        'ANDROID_ICE_CREAM_SANDWICH'    : 14,
+        'ANDROID_ICE_CREAM_SANDWICH_MR1': 15,
+        'ANDROID_JELLY_BEAN'            : 16,
+        'ANDROID_JELLY_BEAN_MR1'        : 17,
+        'ANDROID_JELLY_BEAN_MR2'        : 18,
+        'ANDROID_KITKAT'                : 19,
+        'ANDROID_KITKAT_WATCH'          : 20,
+        'ANDROID_LOLLIPOP'              : 21,
+        'ANDROID_LOLLIPOP_MR1'          : 22,
+        'ANDROID_M'                     : 23,
+        'ANDROID_N'                     : 24,
+        'ANDROID_N_MR1'                 : 25,
+        'ANDROID_O'                     : 26,
+        'ANDROID_O_MR1'                 : 27,
+        'ANDROID_P'                     : 28,
+        'versionCode'                   : getVersionCode(),
+        'versionName'                   : getVersionName()
+]
