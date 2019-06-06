@@ -29,6 +29,7 @@ ext.projectConfig = [
         'ANDROID_O_MR1'                 : 27,
         'ANDROID_P'                     : 28,
         'ANDROID_Q'                     : 29,
+        'ANDROID_LATEST_SDK_VERSION'    : 29,
         'versionCode'                   : getVersionCode(),
         'versionName'                   : getVersionName()
 ]
